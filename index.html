@@ -6,27 +6,34 @@
 		function setSearchEngine(){
 			console.log('working')
 		}
-    window.addEventListener("load", function(){
-         document.getElementById('Go!').addEventListener("click", function(){
-				window.console.log("running")
-		})
+    	window.addEventListener("load", function(){
+				document.querySelector('form').addEventListener("submit", function(){
+				// 	//event.preventDefault()
+				// 	//console.log("running")
+				// document.querySelector('input[name=q]').value
+				let q= document.querySelector('input[name=q]').value
+				let x = document.querySelector('input[name=engine]:checked').value
+				document.getElementById('searchForm').action = x +'?q' +q;
+				document.getElementById('searchForm').action
 
-    });
+			})
+
+   		 });
 	</script>
 </head>
 
 <body>
 		<h2>Search Engine Selector</h2>
-	<div class= searchEngines>
+	
 		<form id="searchForm" action="" method="GET" >
 	<!-- TODO: add form elements -->
 		<label>What would you like to search? <input type= 'text' name = 'q'  required>
-		<label> Google<input type = 'radio' name = engine value="https://www.google.com/search"></label>
-		<label> DuckDuckGO<input type = 'radio' name = engine value="https://duckduckgo.com/"></label>
-		<label> Bing<input type = 'radio' name = engine value="https://www.bing.com/search"></label>
-		<label> Ask<input type = 'radio' name = engine value="https://www.ask.com/web"></label>
-	</div>
-	<button id="Go!" value= "Go!">GO!</button>
+		<label> <input type = 'radio' name = engine value="https://www.google.com/search" required>Google</label>
+		<label> <input type = 'radio' name = engine value="https://duckduckgo.com/">DuckDuckGo</label>
+		<label> <input type = 'radio' name = engine value="https://www.bing.com/search">Bing</label>
+		<label> <input type = 'radio' name = engine value="https://www.ask.com/web">Ask</label>
+
+	<button>GO!</button>
 
 		</form>	
 
